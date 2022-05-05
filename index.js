@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 require("dotenv").config();
 const port = process.env.PORT || 5000;
 const app = express();
@@ -18,12 +18,19 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    const serviceCollection = client.db("RoyalAuto").collection("car");
+    const carCollection = client.db("RoyalAuto").collection("car");
 
     app.get("/car", async (req, res) => {
       const query = {};
-      const cursor = serviceCollection.find(query);
+      const cursor = carCollection.find(query);
       const car = await cursor.toArray();
+      res.send(car);
+    });
+
+    app.get("/car/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const car = await carCollection.findOne(query);
       res.send(car);
     });
   } finally {
