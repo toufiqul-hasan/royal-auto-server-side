@@ -6,18 +6,20 @@ require("dotenv").config();
 const port = process.env.PORT || 5000;
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+// Json Web Token (JWT) Verify
 function verifyJWT(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    return res.status(401).send({ message: "unauthorized access" });
+    return res.status(401).send({ message: "Unauthorized Access" });
   }
   const token = authHeader.split(" ")[1];
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
     if (err) {
-      return res.status(403).send({ message: "Forbidden access" });
+      return res.status(403).send({ message: "Forbidden Access" });
     }
     req.decoded = decoded;
     next();
@@ -36,6 +38,7 @@ async function run() {
     await client.connect();
     const carCollection = client.db("RoyalAuto").collection("car");
 
+    // Auth
     app.post("/login", async (req, res) => {
       const user = req.body;
       const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
@@ -44,6 +47,7 @@ async function run() {
       res.send({ accessToken });
     });
 
+    // Get all inventory items
     app.get("/car", async (req, res) => {
       const query = {};
       const cursor = carCollection.find(query);
@@ -51,6 +55,7 @@ async function run() {
       res.send(car);
     });
 
+    // Get specific inventory item
     app.get("/car/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
@@ -58,6 +63,7 @@ async function run() {
       res.send(car);
     });
 
+    // Get individual items listing
     app.get("/mycar", verifyJWT, async (req, res) => {
       const decodedEmail = req.decoded.email;
       const email = req.query.email;
@@ -66,17 +72,20 @@ async function run() {
         const cursor = carCollection.find(query);
         const car = await cursor.toArray();
         res.send(car);
-      } else {
-        res.status(403).send({ message: "forbidden access" });
+      } 
+      else {
+        res.status(403).send({ message: "Forbidden Access" });
       }
     });
 
+    // Add inventory item
     app.post("/car", async (req, res) => {
       const newCar = req.body;
       const result = await carCollection.insertOne(newCar);
       res.send(result);
     });
 
+    // Update specific inventory item
     app.put("/car/:id", async (req, res) => {
       const id = req.params.id;
       const brandNewQuantity = req.body;
@@ -89,6 +98,7 @@ async function run() {
       res.send(result);
     });
 
+    // Delete specific inventory item
     app.delete("/car/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
