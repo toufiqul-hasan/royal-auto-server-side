@@ -34,6 +34,14 @@ async function run() {
       res.send(car);
     });
 
+    app.get("/mycar", async (req, res) => {
+      const email = req.query.email;
+      const query = { email: email };
+      const cursor = carCollection.find(query);
+      const car = await cursor.toArray();
+      res.send(car);
+    });
+
     app.post("/car", async (req, res) => {
       const newCar = req.body;
       const result = await carCollection.insertOne(newCar);
