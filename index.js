@@ -19,7 +19,6 @@ function verifyJWT(req, res, next) {
     if (err) {
       return res.status(403).send({ message: "Forbidden access" });
     }
-    console.log("decoded", decoded);
     req.decoded = decoded;
     next();
   });
@@ -67,8 +66,7 @@ async function run() {
         const cursor = carCollection.find(query);
         const car = await cursor.toArray();
         res.send(car);
-      } 
-      else {
+      } else {
         res.status(403).send({ message: "forbidden access" });
       }
     });
