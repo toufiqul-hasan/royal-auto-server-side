@@ -4,7 +4,7 @@
 
 ## Description:
 
-This is a vehicle inventory management website. This website has been created especially for automotive dealers, car sellers & auto motor retailers. Either you want to use it as a dealership website or as an inventory management website, this is the right website. This website is a multi purpose usage like dealership of motor & non motor vehicles. This website mainly designed & developed for car dealership business, auto listing websites & comes h&y for any kind of inventory management website.
+This is a vehicle inventory management website. This website has been created especially for automotive dealers, car sellers & auto motor retailers. Either you want to use it as a dealership website or as an inventory management website, this is the right website. This website is a multi purpose usage like dealership of motor & non motor vehicles. This website mainly designed & developed for car dealership business, auto listing website & comes handy for any kind of inventory management website.
 
 ## Features & Functionality:
 
