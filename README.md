@@ -11,6 +11,7 @@ This is a vehicle inventory management website. This website has been created es
 - It's an inventory management website.
 - User can easily create their user account.
 - After successfully account creation user can add product, delete product, restock product etc.
+- Only logged in user can manage inventory.
 - User can reset their login password.
 - User can also log in using Google.
 
