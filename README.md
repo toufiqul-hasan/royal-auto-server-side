@@ -2,18 +2,14 @@
 
 ## Live Link: https://royal-auto-bd.web.app
 
-## Description:
-
-This is a vehicle inventory management website. This website has been created especially for automotive dealers, car sellers & auto motor retailers. Either you want to use it as a dealership website or as an inventory management website, this is the right website. This website is a multi purpose usage like dealership of motor & non motor vehicles. This website mainly designed & developed for car dealership business, auto listing website & comes handy for any kind of inventory management website.
-
-## Features & Functionality:
+## Features:
 
 - It's an inventory management website.
-- User can easily create their user account.
-- After successfully account creation user can add product, delete product, restock product etc.
-- Only logged in user can manage inventory.
-- User can reset their login password.
+- User can easily create their account.
+- After successfully creating an account, users can add products, delete products, restock products etc.
+- Only logged in users can manage inventory.
 - User can also log in using Google.
+- User can also reset their login password.
 
 ## Technologies Used In Client Side:
 
