@@ -1,6 +1,6 @@
 {
-  "name": "royal-auto-server-side",
-  "version": "0.1.0",
+  "name": "royal-auto",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,9 @@
     "start-dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-toufiqul-hasan.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-toufiqul-hasan/issues"
-  },
-  "homepage": "https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-toufiqul-hasan#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",

@@ -72,8 +72,7 @@ async function run() {
         const cursor = carCollection.find(query);
         const car = await cursor.toArray();
         res.send(car);
-      } 
-      else {
+      } else {
         res.status(403).send({ message: "Forbidden Access" });
       }
     });
@@ -105,7 +104,8 @@ async function run() {
       const result = await carCollection.deleteOne(query);
       res.send(result);
     });
-  } finally {
+  } 
+  finally {
   }
 }
 
