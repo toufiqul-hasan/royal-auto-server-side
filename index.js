@@ -104,7 +104,8 @@ async function run() {
       const result = await carCollection.deleteOne(query);
       res.send(result);
     });
-  } finally {
+  } 
+  finally {
   }
 }
 
